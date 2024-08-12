@@ -1,0 +1,69 @@
+<task>
+  <title>ATR Wobble Trade Strategy Implementation</title>
+  
+  <description>
+    Implement an Average True Range (ATR) Wobble Trade strategy using backtesting.py.
+  </description>
+
+  <trading_conditions>
+    <buy_conditions>
+      <condition>current_price <= previous_high AND current_price >= previous_low</condition>
+      <condition>(previous_high - current_price) <= ATR</condition>
+    </buy_conditions>
+    <profit_target>previous_high + 5 pips</profit_target>
+    <stop_loss>current_price - ATR</stop_loss>
+  </trading_conditions>
+
+  <parameters>
+    <atr_period>14</atr_period>
+    <position_size>0.01</position_size>
+    <max_open_trades>3</max_open_trades>
+    <symbol>EURUSD</symbol>
+    <backtest_period>2023-01-01 to 2023-12-31</backtest_period>
+    <timeframe>1hour</timeframe>
+  </parameters>
+
+  <data_sample>
+    <columns>Open, High, Low, Close, Volume, spread, real_volume</columns>
+    <sample_rows>
+      <row>
+        <time>2023-05-16 22:00:00</time>
+        <open>1.08675</open>
+        <high>1.08697</high>
+        <low>1.08581</low>
+        <close>1.08629</close>
+        <volume>1373</volume>
+        <spread>2</spread>
+        <real_volume>0</real_volume>
+      </row>
+      <row>
+        <time>2023-12-06 20:00:00</time>
+        <open>1.07811</open>
+        <high>1.07842</high>
+        <low>1.07710</low>
+        <close>1.07783</close>
+        <volume>3805</volume>
+        <spread>50</spread>
+        <real_volume>0</real_volume>
+      </row>
+    </sample_rows>
+  </data_sample>
+
+  <expected_output>
+    print(stats)
+  </expected_output>
+
+  <notes>
+    - Do not implement load_data method, a placeholder is fine. Focus on the backtest
+  </notes>
+  <code_snippet>
+    	# Backtesting setup
+	symbol = "EURUSD"
+	backtest_start_date = da.datetime(2023, 1, 1)
+	backtest_end_date = da.datetime(2023, 12, 31)
+	
+	# Load data
+	data = load_data(symbol, '1hour', backtest_start_date, backtest_end_date)
+  </code_snippet>
+
+</task>

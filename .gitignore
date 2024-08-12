@@ -1,0 +1,7 @@
+strategies/ICT_FVG.ipynb
+# Ignore data files
+data/sample_data.csv
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc
